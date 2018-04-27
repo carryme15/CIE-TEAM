@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- preventDefault action -->
+    <div id="app">
+        <label for="mycheckbox">点我啥反应都没有</label>
+        <input type="checkbox" @click.prevent="AddLog" name="mycheckbox">
+        <p v-for="i in num">{{msg}}</p>
+    </div>
+    
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            methods: {
+                AddLog(){
+                    this.num += 1
+                }
+            },
+            data: {
+                num: 0,
+                msg: 'prevent default action, so you can not toggle the checkbox'
+            }
+        })
+    </script>
+</body>
+</html>
